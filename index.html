@@ -36,8 +36,12 @@
           <a href="#application">Application</a>
         </nav>
         <div class="logo-wrapper">
-          <a class="logo" href="#">
-            <img src="./assets/images/logo_1.png" alt="AXBIT Logo" />
+          <a href="#">
+            <img
+              src="./assets/images/logo_1.png"
+              alt="AXBIT Logo"
+              class="header-logo"
+            />
           </a>
         </div>
         <div class="contact-wrapper">
@@ -51,7 +55,7 @@
     <!-- 주요 콘텐츠 영역: 추후 필요한 섹션을 이 안에 추가합니다. -->
     <main class="site-main">
       <section id="hero" class="hero">
-        <div class="container hero-content">
+        <div class="container hero-container">
           <h1 class="hero-title">
             공공·제조 현장을 위한 <br />
             AI 전환 기술 파트너
@@ -79,44 +83,50 @@
           </divc>
         </div>
       </section>
-      <section id="about">
-        <div class="container">
-          <img
-            src="./assets/images/logo_1.png"
-            alt="AXBIT Logo"
-            class="about-logo"
-          />
-          <h2 class="section-title">
-            엑스비트는 데이터 전문 기업 엔플럭스의 자회사로,
+      <section id="about" class="about">
+        <div class="container about-container">
+          <div class="logo-wrapper">
+            <img
+              src="./assets/images/logo_2.png"
+              alt="AXBIT Logo"
+              class="about-logo"
+            />
+          </div>
+          <h2 class="about-title">
+            엑스비트는 데이터 전문 기업 엔플럭스의 자회사로, <br />
             <span>공공기관 및 제조 산업의 AI 전환</span>을 지원하는 기술
             기업입니다.
           </h2>
-          <p class="section-description">
-            영상, 센서, 문서 데이터를 AI로 분석하고 고객 환경에 맞는 보안형 AI
-            시스템 구축을 목표로 합니다.
+          <p class="about-description">
+            영상, 센서, 문서 데이터를 AI로 분석하고 고객 환경에 맞는
+            <br />보안형 AI 시스템 구축을 목표로 합니다.
           </p>
         </div>
       </section>
-      <section id="technology">
-        <div class="container">
-          <p class="section-tagline">핵심 기술</p>
-          <p class="section-description">
-            엑스비트는 Vision AI, Data AI, Private LLM/RAG를 결합해 현장의
-            다양한 데이터를 분석하고 업무에 활용 가능한 AI 시스템으로
-            연결합니다.
-          </p>
+      <section id="technology" class="tech">
+        <div class="container tech-container">
+          <div class="section-header">
+            <p class="section-tagline">핵심 기술</p>
+            <p class="section-description">
+              엑스비트는 Vision AI, Data AI, Private LLM/RAG를 결합해 <br />
+              현장의 다양한 데이터를 분석하고 업무에 활용 가능한 AI 시스템으로
+              연결합니다.
+            </p>
+          </div>
 
-          <div class="tech-article">
+          <div class="section-article">
             <article class="tech-item">
-              <span class="material-symbols-outlined" aria-hidden="true">
-                eye_tracking
-              </span>
-              <p class="tech-tagline">Vision AI</p>
-              <h3 class="tech-title">현장을 인식하는 AI</h3>
-              <p class="tech-description">
-                이미지와 영상 데이터를 분석해 제품 결함, 작업자 행동, 위험 상황
-                등을 탐지합니다.
-              </p>
+              <div class="tech-section-title">
+                <span class="material-symbols-outlined icon" aria-hidden="true">
+                  eye_tracking
+                </span>
+                <p class="tech-tagline">Vision AI</p>
+                <h3 class="tech-title">현장을 인식하는 AI</h3>
+                <p class="tech-description">
+                  이미지와 영상 데이터를 분석해 제품 결함, 작업자 행동, 위험
+                  상황 등을 탐지합니다.
+                </p>
+              </div>
               <div class="tech-badge-list">
                 <span class="tech-badge">외관 검사</span>
                 <span class="tech-badge">안전 모니터링</span>
@@ -124,15 +134,17 @@
               </div>
             </article>
             <article class="tech-item">
-              <span class="material-symbols-outlined" aria-hidden="true">
-                chart_data
-              </span>
-              <p class="tech-tagline">Data AI</p>
-              <h3 class="tech-title">데이터를 예측하는 AI</h3>
-              <p class="tech-description">
-                센서 데이터와 통계 데이터를 분석해 이상 징후를 찾고 미래 상황을
-                예측합니다.
-              </p>
+              <div class="tech-section-title">
+                <span class="material-symbols-outlined icon" aria-hidden="true">
+                  chart_data
+                </span>
+                <p class="tech-tagline">Data AI</p>
+                <h3 class="tech-title">데이터를 예측하는 AI</h3>
+                <p class="tech-description">
+                  센서 데이터와 통계 데이터를 분석해 이상 징후를 찾고 미래
+                  상황을 예측합니다.
+                </p>
+              </div>
               <div class="tech-badge-list">
                 <span class="tech-badge">예지 보전</span>
                 <span class="tech-badge">이상 탐지</span>
@@ -140,15 +152,17 @@
               </div>
             </article>
             <article class="tech-item">
-              <span class="material-symbols-outlined" aria-hidden="true">
-                Book_Ribbon
-              </span>
-              <p class="tech-tagline">Private LLM/RAG</p>
-              <h3 class="tech-title">내부 지식과 연결되는 AI</h3>
-              <p class="tech-description">
-                오픈소스 LLM과 RAG 기술을 활용해 내부 문서 기반의 정확한
-                질의응답 환경을 제공합니다.
-              </p>
+              <div class="tech-section-title">
+                <span class="material-symbols-outlined icon" aria-hidden="true">
+                  Book_Ribbon
+                </span>
+                <p class="tech-tagline">Private LLM/RAG</p>
+                <h3 class="tech-title">내부 지식과 연결되는 AI</h3>
+                <p class="tech-description">
+                  오픈소스 LLM과 RAG 기술을 활용해 내부 문서 기반의 정확한
+                  질의응답 환경을 제공합니다.
+                </p>
+              </div>
               <div class="tech-badge-list">
                 <span class="tech-badge">RAG 챗봇</span>
                 <span class="tech-badge">사내 문서 검색</span>
@@ -158,16 +172,19 @@
           </div>
         </div>
       </section>
-      <section id="application">
-        <div class="container">
-          <p class="section-tagline">활용 분야</p>
-          <p class="section-description">
-            엑스비트의 AI 기술은 제조 현장과 공공 업무 환경에서 데이터 분석,
-            자동화, 의사결정 지원을 위한 시스템으로 활용될 수 있습니다.
-          </p>
+      <section id="application" class="app">
+        <div class="container app-container">
+          <div class="section-header">
+            <p class="section-tagline">활용 분야</p>
+            <p class="section-description">
+              엑스비트의 AI 기술은 제조 현장과 공공 업무 환경에서 <br />
+              데이터 분석, 자동화, 의사결정 지원을 위한 시스템으로 활용될 수
+              있습니다.
+            </p>
+          </div>
 
-          <div class="app-article">
-            <article class="app-item">
+          <div class="section-article">
+            <article class="app-item app-manu">
               <h3 class="app-title">제조 산업 분야</h3>
               <p class="app-description">
                 품질 검사, 설비 관리, 안전 모니터링, 공정 문서 검색 등 제조
@@ -180,7 +197,7 @@
                 <li>공정·설비 문서 기반 AI 챗봇</li>
               </ul>
             </article>
-            <article class="app-item">
+            <article class="app-item app-public">
               <h3 class="app-title">공공 분야</h3>
               <p class="app-description">
                 행정 문서, 관제 영상, 공공 데이터를 활용한 업무 효율화와 데이터
@@ -200,13 +217,19 @@
 
     <!-- 페이지 하단 영역: 컨택트와 회사정보 -->
     <footer class="site-footer">
-      <div class="container">
+      <div class="container footer-container">
         <div class="contact">
           <div class="contact-intro">
-            <a>
-              <img src="./assets/images/logo_1.png" alt="AXBIT Logo" />
-            </a>
-            <h2>
+            <div class="logo-wrapper">
+              <a>
+                <img
+                  src="./assets/images/logo_2.png"
+                  alt="AXBIT Logo"
+                  class="contact-logo"
+                />
+              </a>
+            </div>
+            <h2 class="contact-title">
               엑스비트는 공공·제조 분야의 AI 시스템 구축과 기술 협력을 검토하고
               있습니다.
             </h2>
