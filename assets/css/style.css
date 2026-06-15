@@ -75,7 +75,7 @@ section .container {
 
   background-color: var(--color-primary);
   color: #fff;
-  padding-block: 120px;
+  padding-block: 80px;
 }
 
 /* 공통 */
@@ -88,6 +88,12 @@ section .container {
 
 .btn-primary {
   background: var(--color-primary);
+  color: #fff;
+  z-index: 1;
+  position: relative;
+}
+.btn-dark {
+  background: #000;
   color: #fff;
   z-index: 1;
   position: relative;
@@ -128,7 +134,7 @@ section .container {
 }
 
 .section-tagline {
-  font-size: var(--font-size-24);
+  font-size: var(--font-size-18);
   color: var(--color-primary);
   font-weight: 700;
 }
@@ -389,6 +395,10 @@ section .container {
   color: #fff;
   gap: 24px;
 }
+
+.app-item .tags {
+  display: none;
+}
 .app-manu {
   background:
     linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%),
@@ -431,7 +441,11 @@ section .container {
   width: 140px;
 }
 .contact-title {
-  font-size: var(--font-size-40);
+  font-size: var(--font-size-28);
+}
+
+.contact-desc {
+  font-size: var(--font-size-18);
 }
 
 .contact-infos {
@@ -439,13 +453,72 @@ section .container {
   justify-content: center;
   align-items: center;
 }
+.infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  min-width: 180px;
+}
+
+.infos .icon {
+  font-size: var(--font-size-32);
+}
+
+.infos .title {
+  font-size: var(--font-size-28);
+  font-weight: 700;
+}
+.infos .info {
+  font-size: var(--font-size-18);
+}
 
 .copyright {
-  border-top: 1px solid var(--color-background-secondary);
+  border-top: 1px solid var(--color-muted);
+  padding-top: 24px;
+  text-align: center;
+  color: var(--color-secondary);
 }
 @media (max-width: 768px) {
   :root {
     --container-padding: 16px;
+  }
+  .gnb {
+    display: none;
+  }
+  .header-content .logo-wrapper {
+    justify-content: flex-start;
+  }
+
+  .section-article,
+  .contact,
+  .contact-infos {
+    flex-direction: column;
+  }
+
+  .contact-infos {
+    align-items: flex-start;
+  }
+  .infos {
+    flex-direction: row;
+    gap: 8px;
+  }
+  .infos .icon,
+  .infos .title {
+    font-size: var(--font-size-18);
+  }
+  .contact,
+  .contact-infos {
+    gap: 24px;
+  }
+  .tech,
+  .app {
+    height: auto;
+  }
+  .footer-container {
+    gap: 24px;
   }
 }
 
