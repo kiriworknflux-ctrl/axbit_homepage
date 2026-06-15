@@ -1,0 +1,36 @@
+# 의존성 디렉터리는 설치 환경마다 달라지므로 저장소에 포함하지 않습니다.
+node_modules/
+
+# 빌드 및 배포 산출물은 소스에서 재생성 가능한 파일입니다.
+dist/
+build/
+_site/
+.cache/
+.parcel-cache/
+.vite/
+
+# 로컬 환경 변수와 비밀 값은 Git에 포함하지 않습니다.
+.env
+.env.*
+!.env.example
+
+# 로그와 런타임 임시 파일은 개발 환경에서 자동 생성됩니다.
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 압축 파일은 전달/백업용 산출물이므로 Git에서 제외합니다.
+*.zip
+*.7z
+*.rar
+*.tar
+*.tar.gz
+*.tgz
+
+# 운영체제 및 에디터가 생성하는 개인 설정 파일을 제외합니다.
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
