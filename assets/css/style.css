@@ -8,7 +8,7 @@
   --color-temporary: #2abf83;
 
   --container-width: 1400px;
-  --container-padding: clamp(16px, 2vw, 20px);
+  --container-padding: clamp(24px, 3vw, 36px);
 
   --font-base:
     "Pretendard", "Inter", system-ui, -apple-system, BlinkMacSystemFont,
@@ -295,7 +295,7 @@ section .container {
 
 .tech {
   min-height: 720px;
-  height: 70vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -337,6 +337,8 @@ section .container {
   flex-direction: column;
   align-items: flex-start;
   gap: 32px;
+
+  transition: all 0.3s ease;
 }
 .tech-section-title {
   display: flex;
@@ -369,10 +371,20 @@ section .container {
   font-weight: 500;
 }
 
+.tech-item:hover {
+  background-color: rgba(7, 59, 171, 0.5);
+  color: #fff;
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+}
+.tech-item:hover .tech-badge {
+  border: 1px solid var(--color-background-secondary);
+}
+
 /* main - application */
 .app {
   min-height: 720px;
-  height: 70vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -393,11 +405,20 @@ section .container {
   justify-content: flex-end;
   padding: 48px;
   color: #fff;
+
+  transition: all 0.3s ease;
+}
+
+.app-item .content {
+  display: flex;
+  flex-direction: column;
   gap: 24px;
 }
 
 .app-item .tags {
   display: none;
+  font-size: var(--font-size-32);
+  font-weight: 700;
 }
 .app-manu {
   background:
@@ -415,6 +436,31 @@ section .container {
 }
 .app-description {
   font-size: var(--font-size-24);
+}
+
+.app-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+}
+
+.app-item:hover .content {
+  display: none;
+}
+.app-item:hover .tags {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.app-item:hover.app-manu {
+  background:
+    linear-gradient(0deg, rgba(7, 59, 171, 0.8) 0%, rgba(7, 59, 171, 0.8) 100%),
+    center / cover no-repeat url("../images/app_manufactoring_bg.png");
+}
+.app-item:hover.app-public {
+  background:
+    linear-gradient(0deg, rgba(7, 59, 171, 0.8) 0%, rgba(7, 59, 171, 0.8) 100%),
+    center / cover no-repeat url("../images/app_public_bg.png ");
 }
 
 /* footer */
@@ -483,7 +529,7 @@ section .container {
 }
 @media (max-width: 768px) {
   :root {
-    --container-padding: 16px;
+    --container-padding: 24px;
   }
   .gnb {
     display: none;
@@ -492,12 +538,16 @@ section .container {
     justify-content: flex-start;
   }
 
+  .tech,
+  .app {
+    height: auto;
+  }
+
   .section-article,
   .contact,
   .contact-infos {
     flex-direction: column;
   }
-
   .contact-infos {
     align-items: flex-start;
   }
@@ -513,10 +563,7 @@ section .container {
   .contact-infos {
     gap: 24px;
   }
-  .tech,
-  .app {
-    height: auto;
-  }
+
   .footer-container {
     gap: 24px;
   }
