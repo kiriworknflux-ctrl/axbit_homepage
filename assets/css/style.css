@@ -209,7 +209,7 @@ section .container {
       rgba(0, 0, 0, 0.4) 20%,
       rgba(0, 0, 0, 0.8) 100%
     ),
-    center / cover no-repeat url("../images/hero_bg.png");
+    center / cover no-repeat url("../images/hero_bg.webp");
 }
 
 .hero-container {
@@ -263,7 +263,7 @@ section .container {
 
   background:
     linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%),
-    center / cover no-repeat url("../images/about_bg.png");
+    center / cover no-repeat url("../images/about_bg.webp");
 }
 
 .about-container {
@@ -424,12 +424,12 @@ section .container {
 .app-manu {
   background:
     linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%),
-    center / cover no-repeat url("../images/app_manufactoring_bg.png");
+    center / cover no-repeat url("../images/app_manufactoring_bg.webp");
 }
 .app-public {
   background:
     linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%),
-    center / cover no-repeat url("../images/app_public_bg.png");
+    center / cover no-repeat url("../images/app_public_bg.webp");
 }
 
 .app-title {
@@ -456,12 +456,12 @@ section .container {
 .app-item:hover.app-manu {
   background:
     linear-gradient(0deg, rgba(7, 59, 171, 0.8) 0%, rgba(7, 59, 171, 0.8) 100%),
-    center / cover no-repeat url("../images/app_manufactoring_bg.png");
+    center / cover no-repeat url("../images/app_manufactoring_bg.webp");
 }
 .app-item:hover.app-public {
   background:
     linear-gradient(0deg, rgba(7, 59, 171, 0.8) 0%, rgba(7, 59, 171, 0.8) 100%),
-    center / cover no-repeat url("../images/app_public_bg.png ");
+    center / cover no-repeat url("../images/app_public_bg.webp");
 }
 
 /* footer */
