@@ -42,10 +42,8 @@
     <script src="./assets/js/main.js" defer></script>
   </head>
   <body>
-    <!-- 페이지 상단 영역: 로고, 내비게이션 등 공통 요소를 배치합니다. -->
     <header class="site-header">
       <div class="container header-content">
-        <!-- 상단고정 네비 -->
         <nav class="gnb" aria-label="Global Navigation">
           <a href="#about">About</a>
           <a href="#technology">Technology</a>
@@ -61,14 +59,17 @@
           </a>
         </div>
         <div class="contact-wrapper">
-          <a href="mailto:contact@xbit.co.kr" class="btn btn-primary btn-sm"
-            >문의하기</a
+          <button
+            type="button"
+            class="btn btn-primary btn-sm"
+            data-contact-modal-open
           >
+            문의하기
+          </button>
         </div>
       </div>
     </header>
 
-    <!-- 주요 콘텐츠 영역: 추후 필요한 섹션을 이 안에 추가합니다. -->
     <main class="site-main">
       <section id="hero" class="hero">
         <div class="container hero-container">
@@ -82,9 +83,13 @@
             공공기관과 제조 산업에 최적화된 보안형 맞춤 AI 시스템을 구축합니다.
           </p>
           <div class="hero-cta">
-            <a href="mailto:contact@xbit.co.kr" class="btn btn-primary btn-lg"
-              >문의하기</a
+            <button
+              type="button"
+              class="btn btn-primary btn-lg"
+              data-contact-modal-open
             >
+              문의하기
+            </button>
           </div>
         </div>
         <!-- 헤더 하단 무한 롤링 텍스트 배너 -->
@@ -238,7 +243,6 @@
       </section>
     </main>
 
-    <!-- 페이지 하단 영역: 컨택트와 회사정보 -->
     <footer class="site-footer">
       <div class="container footer-container">
         <div class="contact">
@@ -260,35 +264,15 @@
               프로젝트 문의, PoC 상담, 기술 협력 제안을 남겨주세요.
             </p>
             <div class="contact-wrapper">
-              <a href="mailto:contact@axbit.com" class="btn btn-dark btn-sm"
-                >문의하기</a
+              <button
+                type="button"
+                class="btn btn-dark btn-sm"
+                data-contact-modal-open
               >
+                문의하기
+              </button>
             </div>
           </div>
-          <!-- <div class="contact-infos">
-            <div class="infos mail">
-              <span class="material-symbols-outlined icon" aria-hidden="true">
-                mail
-              </span>
-              <p class="title">Email</p>
-              <p class="info">contact@axbit.com</p>
-            </div>
-            <div class="infos tel">
-              <span class="material-symbols-outlined icon" aria-hidden="true"
-                >phone
-              </span>
-              <p class="title">Tel</p>
-              <p class="info">02-1234-5678</p>
-            </div>
-
-            <div class="infos address">
-              <span class="material-symbols-outlined icon" aria-hidden="true">
-                location_on
-              </span>
-              <p class="title">Address</p>
-              <p class="info">서울특별시 강남구 테헤란로 123</p>
-            </div>
-          </div> -->
         </div>
         <div class="copyright">
           <p>&copy; AXBIT Co., Ltd. All rights reserved.</p>
@@ -299,5 +283,92 @@
         </div>
       </div>
     </footer>
+
+    <div class="contact-modal" data-contact-modal hidden>
+      <div class="contact-modal__backdrop" data-contact-modal-close></div>
+      <section
+        class="contact-modal__panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="contact-modal-title"
+      >
+        <div class="contact-modal__header">
+          <div>
+            <p class="contact-modal__eyebrow">Contact</p>
+            <h2 id="contact-modal-title" class="contact-modal__title">
+              AX 도입 문의
+            </h2>
+          </div>
+        </div>
+
+        <form class="contact-form" data-contact-form>
+          <div class="contact-form__grid">
+            <label class="contact-form__field">
+              <span>이름 <em aria-hidden="true">*</em></span>
+              <input type="text" name="name" autocomplete="name" required />
+            </label>
+            <label class="contact-form__field">
+              <span>회사/기관명 <em aria-hidden="true">*</em></span>
+              <input
+                type="text"
+                name="company"
+                autocomplete="organization"
+                required
+              />
+            </label>
+            <label class="contact-form__field">
+              <span>이메일 <em aria-hidden="true">*</em></span>
+              <input type="email" name="email" autocomplete="email" required />
+            </label>
+            <label class="contact-form__field">
+              <span>연락처 <em aria-hidden="true">*</em></span>
+              <input type="tel" name="phone" autocomplete="tel" required />
+            </label>
+          </div>
+
+          <label class="contact-form__field">
+            <span>문의 내용 <em aria-hidden="true">*</em></span>
+            <textarea name="message" rows="6" required></textarea>
+          </label>
+
+          <div class="privacy-notice">
+            <strong>개인정보 수집 및 이용 안내</strong>
+            <p>
+              수집 항목은 이름, 회사/기관명, 이메일, 연락처, 문의 내용이며 문의
+              확인 및 답변 회신 목적으로 사용됩니다. 개인정보는 문의 처리 완료
+              후 1년간 보관되며, 동의하지 않을 경우 문의 접수가 제한될 수
+              있습니다.
+            </p>
+            <label class="privacy-agree">
+              <input type="checkbox" name="privacyAgreement" required />
+              <span>개인정보 수집 및 이용에 동의합니다.</span>
+            </label>
+          </div>
+
+          <p
+            class="contact-form__message"
+            data-contact-form-message
+            aria-live="polite"
+          ></p>
+
+          <div class="contact-modal__actions">
+            <button
+              type="button"
+              class="btn btn-dark btn-sm"
+              data-contact-modal-close
+            >
+              닫기
+            </button>
+            <button
+              type="submit"
+              class="btn btn-primary btn-sm"
+              data-contact-submit
+            >
+              제출
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
   </body>
 </html>
