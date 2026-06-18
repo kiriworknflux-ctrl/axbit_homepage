@@ -78,15 +78,17 @@ export function initContactForm() {
     setMessage("");
 
     try {
-      await fetch(CONTACT_FORM_ENDPOINT, {
+      const response = await fetch(CONTACT_FORM_ENDPOINT, {
         method: "POST",
-        mode: "no-cors",
         headers: {
-          // Apps Script는 CORS 응답 제어가 제한적이므로 응답 본문을 읽지 않습니다.
-          "Content-Type": "text/plain;charset=utf-8",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(payload),
       });
+
+      if (!response.ok) {
+        throw new Error("서버 응답 에러가 발생했습니다.");
+      }
 
       form.reset();
       closeModal();
