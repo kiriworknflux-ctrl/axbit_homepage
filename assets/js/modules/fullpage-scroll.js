@@ -1,9 +1,5 @@
-const FULLPAGE_SECTION_SELECTORS = [
-  "#hero",
-  "#about",
-  "#technology",
-  "#application",
-];
+import { getPageSections, getCurrentSectionIndex } from "./section-utils.js";
+
 const DESKTOP_QUERY = "(min-width: 769px)";
 const SCROLL_LOCK_TIME = 900;
 
@@ -12,10 +8,8 @@ export function initFullpageScroll() {
   const reducedMotionMedia = window.matchMedia(
     "(prefers-reduced-motion: reduce)",
   );
-  const sections = FULLPAGE_SECTION_SELECTORS.map((selector) =>
-    document.querySelector(selector),
-  ).filter(Boolean);
 
+  const sections = getPageSections();
   if (sections.length < 2) return;
 
   let isScrolling = false;
@@ -23,21 +17,6 @@ export function initFullpageScroll() {
   const canUseFullpageScroll = () =>
     desktopMedia.matches && !reducedMotionMedia.matches;
 
-  const getCurrentSectionIndex = () => {
-    const viewportMiddle = window.scrollY + window.innerHeight / 2;
-
-    return sections.reduce((closestIndex, section, index) => {
-      const sectionMiddle = section.offsetTop + section.offsetHeight / 2;
-      const closestSection = sections[closestIndex];
-      const closestMiddle =
-        closestSection.offsetTop + closestSection.offsetHeight / 2;
-
-      return Math.abs(sectionMiddle - viewportMiddle) <
-        Math.abs(closestMiddle - viewportMiddle)
-        ? index
-        : closestIndex;
-    }, 0);
-  };
   const moveToSection = (targetIndex) => {
     if (targetIndex < 0 || targetIndex >= sections.length) return;
 
@@ -62,7 +41,7 @@ export function initFullpageScroll() {
     }
 
     const direction = event.deltaY > 0 ? 1 : -1;
-    const currentIndex = getCurrentSectionIndex();
+    const currentIndex = getCurrentSectionIndex(sections);
     const targetIndex = currentIndex + direction;
 
     if (targetIndex < 0 || targetIndex >= sections.length) return;
