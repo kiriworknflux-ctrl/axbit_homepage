@@ -1,21 +1,16 @@
-import { getPageSections, getCurrentSectionIndex } from "./section-utils.js";
+import {
+  canUseMotionEffects,
+  getPageSections,
+  getCurrentSectionIndex,
+} from "./section-utils.js";
 
-const DESKTOP_QUERY = "(min-width: 769px)";
 const SCROLL_LOCK_TIME = 900;
 
 export function initFullpageScroll() {
-  const desktopMedia = window.matchMedia(DESKTOP_QUERY);
-  const reducedMotionMedia = window.matchMedia(
-    "(prefers-reduced-motion: reduce)",
-  );
-
   const sections = getPageSections();
   if (sections.length < 2) return;
 
   let isScrolling = false;
-
-  const canUseFullpageScroll = () =>
-    desktopMedia.matches && !reducedMotionMedia.matches;
 
   const moveToSection = (targetIndex) => {
     if (targetIndex < 0 || targetIndex >= sections.length) return;
@@ -32,7 +27,7 @@ export function initFullpageScroll() {
     }, SCROLL_LOCK_TIME);
   };
   const handleWheel = (event) => {
-    if (!canUseFullpageScroll()) return;
+    if (!canUseMotionEffects()) return;
     if (document.body.classList.contains("is-modal-open")) return;
 
     if (isScrolling) {

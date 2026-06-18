@@ -5,6 +5,16 @@ export const FULLPAGE_SECTION_SELECTORS = [
   "#application",
 ];
 
+const DESKTOP_QUERY = "(min-width: 769px)";
+const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
+
+export function canUseMotionEffects() {
+  return (
+    window.matchMedia(DESKTOP_QUERY).matches &&
+    !window.matchMedia(REDUCED_MOTION_QUERY).matches
+  );
+}
+
 export function getPageSections() {
   return FULLPAGE_SECTION_SELECTORS.map((selector) =>
     document.querySelector(selector),

@@ -698,6 +698,41 @@ body.is-modal-open {
   overflow: hidden;
 }
 
+/* 섹션 진입 애니메이션: JS 초기화 후에만 숨김 상태를 적용해 콘텐츠 유실을 막습니다. */
+.has-reveal-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+  transition-delay: var(--reveal-delay, 0s);
+}
+
+.has-reveal-ready [data-reveal].is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-reveal-delay="100"] {
+  --reveal-delay: 0.1s;
+}
+
+[data-reveal-delay="200"] {
+  --reveal-delay: 0.2s;
+}
+
+[data-reveal-delay="300"] {
+  --reveal-delay: 0.3s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .has-reveal-ready [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 @media (max-width: 768px) {
   :root {
     --container-padding: 24px;
