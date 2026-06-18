@@ -37,7 +37,15 @@ export function initFullpageScroll() {
 
     const direction = event.deltaY > 0 ? 1 : -1;
     const currentIndex = getCurrentSectionIndex(sections);
-    const targetIndex = currentIndex + direction;
+    let targetIndex = currentIndex + direction;
+
+    // 마지막 섹션 아래(푸터 영역)에서 위로 스크롤할 때 마지막 섹션으로 먼저 이동하도록 보정
+    const lastSection = sections[sections.length - 1];
+    const lastSectionTop =
+      lastSection.getBoundingClientRect().top + window.scrollY;
+    if (direction === -1 && window.scrollY > lastSectionTop) {
+      targetIndex = sections.length - 1;
+    }
 
     if (targetIndex < 0 || targetIndex >= sections.length) return;
 

@@ -25,10 +25,13 @@ export function getCurrentSectionIndex(sections) {
   const viewportMiddle = window.scrollY + window.innerHeight / 2;
 
   return sections.reduce((closestIndex, section, index) => {
-    const sectionMiddle = section.offsetTop + section.offsetHeight / 2;
+    const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+    const sectionMiddle = sectionTop + section.offsetHeight / 2;
+
     const closestSection = sections[closestIndex];
-    const closestMiddle =
-      closestSection.offsetTop + closestSection.offsetHeight / 2;
+    const closestTop =
+      closestSection.getBoundingClientRect().top + window.scrollY;
+    const closestMiddle = closestTop + closestSection.offsetHeight / 2;
 
     return Math.abs(sectionMiddle - viewportMiddle) <
       Math.abs(closestMiddle - viewportMiddle)

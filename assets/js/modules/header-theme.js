@@ -3,10 +3,11 @@ import { getCurrentSection, getPageSections } from "./section-utils.js";
 const header = document.querySelector(".site-header");
 const logo = document.querySelector(".header-logo");
 const sections = getPageSections();
+let currentTheme = "";
 
 export function applyHeaderTheme() {
-  let currentTheme = "";
   const currentSection = getCurrentSection(sections);
+  if (!currentSection) return;
   const nextTheme = currentSection.id === "about" ? "light" : "dark";
 
   if (currentTheme === nextTheme) return;
