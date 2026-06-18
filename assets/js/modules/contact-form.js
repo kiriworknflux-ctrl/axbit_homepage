@@ -81,14 +81,10 @@ export function initContactForm() {
       const response = await fetch(CONTACT_FORM_ENDPOINT, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "text/plain;charset=utf-8",
         },
         body: JSON.stringify(payload),
       });
-      console.log("response :>> ", response);
-      if (!response.ok) {
-        throw new Error("서버 응답 에러가 발생했습니다. ");
-      }
 
       if (!response.ok) {
         throw new Error("서버 응답 에러가 발생했습니다.");
