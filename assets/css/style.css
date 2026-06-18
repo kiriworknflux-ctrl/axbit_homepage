@@ -5,7 +5,6 @@
   --color-muted: #6b7280;
   --color-background: #ffffff;
   --color-background-secondary: #f2f2f2;
-  --color-temporary: #2abf83;
 
   --container-width: 1400px;
   --container-padding: clamp(24px, 3vw, 36px);
@@ -200,6 +199,9 @@ section .container {
 .site-header.is-light .gnb a {
   color: #fff;
 }
+.site-header.is-light .gnb a:hover {
+  color: var(--color-primary);
+}
 
 .logo {
   display: inline-block;
@@ -350,10 +352,6 @@ section .container {
   flex-direction: column;
   align-items: flex-start;
   gap: 32px;
-
-  transition-property: color, transform;
-  transition-duration: 0.3s;
-  transition-timing-function: ease;
 }
 .tech-section-title {
   display: flex;
@@ -387,10 +385,8 @@ section .container {
 }
 
 .tech-item:hover {
-  background-color: rgba(7, 59, 171, 0.5);
+  background-color: rgba(7, 59, 171, 0.8);
   color: #fff;
-  transform: translateY(-8px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
 }
 .tech-item:hover .tech-badge {
   border: 1px solid var(--color-background-secondary);
@@ -420,8 +416,6 @@ section .container {
   justify-content: flex-end;
   padding: 48px;
   color: #fff;
-
-  transition: all 0.3s ease;
 }
 
 .app-item .content {
@@ -451,11 +445,6 @@ section .container {
 }
 .app-description {
   font-size: var(--font-size-24);
-}
-
-.app-item:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
 }
 
 .app-item:hover .content {
@@ -703,14 +692,20 @@ body.is-modal-open {
   opacity: 0;
   transform: translateY(28px);
   transition:
-    opacity 0.7s ease,
-    transform 0.7s ease;
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   transition-delay: var(--reveal-delay, 0s);
 }
 
 .has-reveal-ready [data-reveal].is-revealed {
   opacity: 1;
   transform: translateY(0);
+}
+
+.has-reveal-ready .tech-item.is-revealed:hover,
+.has-reveal-ready .app-item.is-revealed:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
 }
 
 [data-reveal-delay="100"] {
