@@ -163,6 +163,9 @@ section .container {
 }
 
 /* 헤더 */
+.site-header {
+  transition: all 0.3s ease;
+}
 .header-content {
   display: flex;
   align-items: center;
@@ -192,6 +195,10 @@ section .container {
 .gnb a:hover {
   color: var(--color-primary);
   font-weight: 700;
+}
+
+.site-header.is-light .gnb a {
+  color: #fff;
 }
 
 .logo {
