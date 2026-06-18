@@ -3,6 +3,7 @@ export const FULLPAGE_SECTION_SELECTORS = [
   "#about",
   "#technology",
   "#application",
+  ".site-footer",
 ];
 
 const DESKTOP_QUERY = "(min-width: 769px)";
