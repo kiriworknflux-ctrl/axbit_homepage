@@ -1,0 +1,9 @@
+{
+  "name": "axbit-homepage",
+  "version": "1.0.0",
+  "description": "AXBIT 공식 홈페이지",
+  "scripts": {
+    "update": "node update-sitemap.js"
+  },
+  "private": true
+}
